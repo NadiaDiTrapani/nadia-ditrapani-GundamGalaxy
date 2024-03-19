@@ -60,6 +60,11 @@ Special considerations that our app must take into account include:
  - Implement filters and sorting options by series, scale, grade, and custom tags.
 
 
+**Nice to Have Features**
+- Offline Access
+- Customization Options
+- Community Interaction 
+
 ## Implementation
 
 ### Tech Stack
@@ -101,37 +106,63 @@ To gather information to create a database -
 ### Endpoints
 **For user**
 
-.get /user/:id
+- .get /login
+- .post /register
 
-.get /user/inprogress
-.post /user/inprogress
+- user profile
+    - .get /profile/:id
+    - .put /profile/:id (update profile)
+    - .delete /profile/:id
 
-.get /user/wishlist
-.post /user/wishlist
+- wishlist 
+    - .get /wishlist
+    - .post /wishlist
+    - .delete /wishlist/:id
 
-.get /user/haves
-.post /user/haves
+- have
+    - .get /have
+    - .post /have
+    - .delete /have/:id
 
-.get /user/completed
-.post /user/completed
+- in progress
+    - .get /inprogress
+    - .post /inprogress
+    - .delete /inprogress/:id
+
+- completed
+    - .get /completed
+    - .post /completed
 
 **For Catalog**
 
-.get /gundam
+- .get /gundam
+- .get /gundam/:id
+- .post /gundam 
+- .put /gundam/:id
+- .delete /gundam/:id
 
+- search 
+    - .get /gundam/search
 
-.get /gundam/:id
+- filter
+    - .get /gundam?(filter type)
 
 **example of response**
 
 
 {
     name: 'SD GUNDAM EX-STANDARD RISING FREEDOM GUNDAM',
+
     brand: 'Bandai',
+
     series: 'Mobile Suit Gundam SEED',
+
     grade: 'SD EX-Standard',
-    product_number: '249392"
-    image: ''
+
+    product_number: '249392",
+
+    image: '',
+
     description:'The "Rising Freedom Gundam" that appears in "Mobile Suit Gundam SEED FREEDOM" is made into a three-dimensional SD Gundam EX Standard! Design arrangement unique to SD Gundam EX Standard. Simple transformation to MA form is possible by replacing some parts. Ensures a range of motion that allows for bold action poses. Beam rifle, beam saber, and shield are included. You can customize play with the HG series by combining equipment. Accessories: Beam rifle x1, Beam saber x2, Shield x1, Seal x 1'
 }
 
@@ -141,10 +172,12 @@ A simple sign-up form to create an account.
 ## Roadmap
 
 - creating database of information
+    - limiting to about 25 gundams
 
 - creating catalog section 
-    - search function
     - displaying gundam details
+    - filtering grades
+    - search function
 
 - creating user section
     - sign up/ log in
@@ -155,6 +188,6 @@ A simple sign-up form to create an account.
 - save gundams to wants or haves list
 
 ## Nice-to-haves
+- being responsive to different screen sizes
 
-- Community Section where you can share tips, notes, pictures.
-- Offline access
+- 
