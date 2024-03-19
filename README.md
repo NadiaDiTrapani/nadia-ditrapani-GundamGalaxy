@@ -70,9 +70,9 @@ List technologies that will be used in your app, including any libraries to save
 List any external sources of data that will be used in your app.
 
 To gather information to create a database - 
-[text](https://www.gundamplanet.com/)
-[text](https://satellite.bandai-hobby.net/tips/assemble.php)
-[text](https://manual.bandai-hobby.net/)
+[Planet Gundam](https://www.gundamplanet.com/)
+[Bandai Hobby](https://satellite.bandai-hobby.net/tips/assemble.php)
+[Bandai Gundam Instructions](https://manual.bandai-hobby.net/)
 
 ### Sitemap
 ![site map](./sitemap.png)
@@ -91,6 +91,7 @@ To gather information to create a database -
 
 ### Endpoints
 **For user**
+
 .get /user/:id
 
 .get /user/inprogress
@@ -106,9 +107,15 @@ To gather information to create a database -
 .post /user/completed
 
 **For Catalog**
+
 .get /gundam
 
+
 .get /gundam/:id
+
+**example of response**
+
+
 {
     name: 'SD GUNDAM EX-STANDARD RISING FREEDOM GUNDAM',
     brand: 'Bandai',
@@ -122,7 +129,6 @@ To gather information to create a database -
 A simple sign-up form to create an account. 
 
 ## Roadmap
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
 
 - creating database of information
 
@@ -139,6 +145,6 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 - save gundams to wants or haves list
 
 ## Nice-to-haves
-Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
 
 - Community Section where you can share tips, notes, pictures.
+- Offline access
