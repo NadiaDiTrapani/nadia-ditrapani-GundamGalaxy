@@ -64,6 +64,7 @@ Special considerations that our app must take into account include:
 - Offline Access
 - Customization Options
 - Community Interaction 
+- Note Function in Tracking building progress
 
 ## Implementation
 
@@ -89,19 +90,19 @@ To gather information to create a database -
 [Bandai Gundam Instructions](https://manual.bandai-hobby.net/)
 
 ### Sitemap
-![site map](./sitemap.png)
+![site map](./proposal_images/sitemap.png)
 
 ### Mockups
-![product detail page](./mobile%20product%20detail.png)
-![user profile welcome page](./mobile%20user%20profile.png)
-![user sign up](./mobile%20user%20sign-up.png)
-![user log in](./mobile%20user%20log%20in.png)
-![catalog logged in](./mobile%20catelog%20-signed%20in.png)
-![in progress](./mobile%20in%20progress.png)
-![completed](./mobile%20completed.png)
+- product detail page ![product detail page](./proposal_images/mobile%20product%20detail.png)
+- user profile page ![user profile welcome page](./proposal_images/mobile%20user%20profile.png)
+- user sign up ![user sign up](./proposal_images/mobile%20user%20sign-up.png)
+- user log in ![user log in](./proposal_images/mobile%20user%20log%20in.png)
+- catalog logged in ![catalog logged in](./proposal_images/mobile%20catelog%20-signed%20in.png)
+- in progress page ![in progress](./proposal_images/mobile%20in%20progress.png)
+- completed page ![completed](./proposal_images/mobile%20completed.png)
 
 ### Data
-![relationship in data](./drawSQL-image-export-2024-03-19.png)
+![relationship in data](./proposal_images/drawSQL-image-export-2024-03-19.png)
 
 ### Endpoints
 **For user**
@@ -114,32 +115,16 @@ To gather information to create a database -
     - .put /profile/:id (update profile)
     - .delete /profile/:id
 
-- wishlist 
-    - .get /wishlist
-    - .post /wishlist
-    - .delete /wishlist/:id
-
-- have
-    - .get /have
-    - .post /have
-    - .delete /have/:id
-
-- in progress
-    - .get /inprogress
-    - .post /inprogress
-    - .delete /inprogress/:id
-
-- completed
-    - .get /completed
-    - .post /completed
+- model status 
+    - .post /user/:id/modelstatus (set status to eith wishlist or own)
+    - .get /user/:id/modelstatus
+    - .get /user/:id/modelstatus/gundam/:id
+    - .put /user/:id/modelstatus/gundam/:id (updating status to either wishlist, own, in-progress or completed )
 
 **For Catalog**
 
 - .get /gundam
 - .get /gundam/:id
-- .post /gundam 
-- .put /gundam/:id
-- .delete /gundam/:id
 
 - search 
     - .get /gundam/search
@@ -149,8 +134,8 @@ To gather information to create a database -
 
 **example of response**
 
-
 {
+
     name: 'SD GUNDAM EX-STANDARD RISING FREEDOM GUNDAM',
 
     brand: 'Bandai',
@@ -172,22 +157,24 @@ A simple sign-up form to create an account.
 ## Roadmap
 
 - creating database of information
-    - limiting to about 25 gundams
+    - limiting to about 25 gundams (5 per grade)
 
 - creating catalog section 
+    - displaying gundams
     - displaying gundam details
     - filtering grades
-    - search function
 
 - creating user section
-    - sign up/ log in
-    - profile
-    - wants, haves, completed, in progress - displaying the right information
+    - creating one user
+    - profile 
+    - wish list, own, completed, in progress - displaying the right information
     - in progress detail page
 
-- save gundams to wants or haves list
+- save gundams to wish list or own list
 
 ## Nice-to-haves
 - being responsive to different screen sizes
-
-- 
+- note function in in-progress 
+- search function in catalog
+- sign-up and log-in function for different users
+- creating an admin log in section
