@@ -64,10 +64,19 @@ Special considerations that our app must take into account include:
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.	
+- React
+- MySQL
+- Express
+- Client libraries: 
+    - react
+    - react-router
+    - axios
+- Server libraries:
+    - knex
+    - express
+    - bcrypt for password hashing
 
 ### APIs
-List any external sources of data that will be used in your app.
 
 To gather information to create a database - 
 [Planet Gundam](https://www.gundamplanet.com/)
@@ -121,6 +130,7 @@ To gather information to create a database -
     brand: 'Bandai',
     series: 'Mobile Suit Gundam SEED',
     grade: 'SD EX-Standard',
+    product_number: '249392"
     image: ''
     description:'The "Rising Freedom Gundam" that appears in "Mobile Suit Gundam SEED FREEDOM" is made into a three-dimensional SD Gundam EX Standard! Design arrangement unique to SD Gundam EX Standard. Simple transformation to MA form is possible by replacing some parts. Ensures a range of motion that allows for bold action poses. Beam rifle, beam saber, and shield are included. You can customize play with the HG series by combining equipment. Accessories: Beam rifle x1, Beam saber x2, Shield x1, Seal x 1'
 }
