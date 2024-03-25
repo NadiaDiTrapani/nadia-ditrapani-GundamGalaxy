@@ -144,9 +144,7 @@ To gather information to create a database -
 
     grade: 'SD EX-Standard',
 
-    product_number: '249392",
-
-    image: '',
+    image: 'path to where images are',
 
     description:'The "Rising Freedom Gundam" that appears in "Mobile Suit Gundam SEED FREEDOM" is made into a three-dimensional SD Gundam EX Standard! Design arrangement unique to SD Gundam EX Standard. Simple transformation to MA form is possible by replacing some parts. Ensures a range of motion that allows for bold action poses. Beam rifle, beam saber, and shield are included. You can customize play with the HG series by combining equipment. Accessories: Beam rifle x1, Beam saber x2, Shield x1, Seal x 1'
 }
@@ -178,3 +176,4 @@ A simple sign-up form to create an account.
 - search function in catalog
 - sign-up and log-in function for different users
 - creating an admin log in section
+- getting the instructions 
