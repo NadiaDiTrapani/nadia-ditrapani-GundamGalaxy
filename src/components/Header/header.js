@@ -1,34 +1,45 @@
 import './header.scss';
-import star from '../../assets/starLogo.svg'
-import profile from '../../assets/profile.svg'
 import logo from '../../assets/logo.svg'
 
-import { NavLink} from 'react-router-dom';
+import { NavLink , useLocation} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 
 function Header(){
+    const location = useLocation();
+    const [selected, setSelected] = useState(false);
+    
+    useEffect(() => {
+        setSelected(location.pathname === '/gundams' || location.pathname === '/');
+    }, [location]);
+    
+    const handleLogoClick = () => {
+        setSelected(true);
+    };
 
     return(
-    <header className='header'>
-        <div className='header__logo-container'>  
-            <NavLink to={'/'}>
-                <img src={logo} alt='Gundam Galaxy logo' className='header__logo'/>
+        <header className='header'>
+        <div className='header__logo-container'>
+            <NavLink to={'/'} 
+            onClick={handleLogoClick} 
+            className={`header__logo ${selected ? "active" : ""}`}>
+                <img src={logo} alt='Gundam Galaxy logo' />
             </NavLink>
-        </div>      
+        </div>
 
         <ul className='header__container'>
             <li>
-                <NavLink to={'/'}> <p className='header__links'>Catalog</p>
-                    {/* <img src={star} alt='star logo' className='header__icons'/> */}
+                <NavLink to={'/'} 
+                className={selected ? "active" : ""} 
+                onClick={() => setSelected(true)}>
+                    <p className='header__links'>Catalog</p>
                 </NavLink>
             </li>
-
-            
-                
-                
             <li>
-                <NavLink to={'/user'}> <p className='header__links'>User</p>
-                    {/* <img src={profile} alt='profile logo' className='header__icons'/> */}
+                <NavLink to={'/user'} 
+                className={!selected ? "active" : ""} 
+                onClick={() => setSelected(false)}>
+                    <p className='header__links'>User</p>
                 </NavLink>
             </li>
         </ul>

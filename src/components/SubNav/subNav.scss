@@ -1,0 +1,41 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.welcome{
+    margin: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: $border;
+}
+
+.nav-bar{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: .75rem;
+    border-bottom: $border;
+
+    &__search{
+        background-color: $red;
+        border: none;
+        padding: .5rem;
+        width: 100%;
+        margin-bottom: .5rem;
+    }
+
+    &__btn-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__buttons{
+        border: none;
+        background-color: $blue;
+        color: #fff;
+        padding: .75rem 1rem;
+        margin-bottom:.5rem;
+        font-weight: 600;
+        width: 48%;
+    }
+}

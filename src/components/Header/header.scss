@@ -3,7 +3,7 @@
 
 .header{
     &__logo-container{
-        border-bottom: solid 2px #000;
+        border-bottom: $border;
         margin: 1rem;
         display: flex;
         justify-content: flex-end;
@@ -14,13 +14,18 @@
         margin-bottom: 1rem;
     }
 
+    // &__logo-active{
+    //     width: 15rem;
+    //     margin-bottom: 1rem;
+    // }
+
     &__container{
         display: flex;
         margin: 1rem ;
         padding-bottom: 1rem;
         justify-content: space-between;
         list-style: none;
-        border-bottom: solid 2px #000;
+        border-bottom: $border;
     }
 
     &__links{
@@ -38,4 +43,12 @@
 
 a{
     text-decoration: none;
+}
+
+.header__links.active{
+    background-color: $red;
+    color: #fff;
+    padding: .5rem 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
