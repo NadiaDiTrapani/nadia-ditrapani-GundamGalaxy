@@ -1,0 +1,7 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.container{
+    display: flex;
+    border-bottom: solid 3px #000;
+}
