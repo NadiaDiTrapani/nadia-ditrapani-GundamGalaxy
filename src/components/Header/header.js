@@ -1,19 +1,38 @@
 import './header.scss';
-import star from '../../assets/starLogo.png'
-import logo from '../../assets/logo.png'
-import profile from '../../assets/profile.png'
+import star from '../../assets/starLogo.svg'
+import profile from '../../assets/profile.svg'
+import logo from '../../assets/logo.svg'
+
+import { NavLink} from 'react-router-dom';
+
 
 function Header(){
+
     return(
-        <>
-        <div className='container'>
-            <ul>
-            <li><img src={star} alt='star logo'/></li>
-            <li><img src={logo} alt='Gundam Galaxy logo'/></li>
-            <li><img src={profile} alt='profile logo'/></li>
-            </ul>
-        </div>
-        </>
+    <header className='header'>
+        <div className='header__logo-container'>  
+            <NavLink to={'/'}>
+                <img src={logo} alt='Gundam Galaxy logo' className='header__logo'/>
+            </NavLink>
+        </div>      
+
+        <ul className='header__container'>
+            <li>
+                <NavLink to={'/'}> <p className='header__links'>Catalog</p>
+                    {/* <img src={star} alt='star logo' className='header__icons'/> */}
+                </NavLink>
+            </li>
+
+            
+                
+                
+            <li>
+                <NavLink to={'/user'}> <p className='header__links'>User</p>
+                    {/* <img src={profile} alt='profile logo' className='header__icons'/> */}
+                </NavLink>
+            </li>
+        </ul>
+    </header>
     )
 }
 

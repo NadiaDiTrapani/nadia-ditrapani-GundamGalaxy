@@ -1,7 +1,41 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
 
-.container{
-    display: flex;
-    border-bottom: solid 3px #000;
+.header{
+    &__logo-container{
+        border-bottom: solid 2px #000;
+        margin: 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__logo{
+        width: 15rem;
+        margin-bottom: 1rem;
+    }
+
+    &__container{
+        display: flex;
+        margin: 1rem ;
+        padding-bottom: 1rem;
+        justify-content: space-between;
+        list-style: none;
+        border-bottom: solid 2px #000;
+    }
+
+    &__links{
+        background-color: #000;
+        color: #fff;
+        padding: .5rem 2rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+
+        &:hover{
+            background-color: $red;
+        }
+    }
+}
+
+a{
+    text-decoration: none;
 }
