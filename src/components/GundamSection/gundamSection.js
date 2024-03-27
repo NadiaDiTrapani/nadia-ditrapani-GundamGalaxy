@@ -2,6 +2,8 @@ import GundamCard from '../GundamCard/gundamCard';
 import './gundamSection.scss';
 
 function GundamSection(){
+
+
     return(
         <>
             <div className='container'>
