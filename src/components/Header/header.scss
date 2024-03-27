@@ -14,11 +14,6 @@
         margin-bottom: 1rem;
     }
 
-    // &__logo-active{
-    //     width: 15rem;
-    //     margin-bottom: 1rem;
-    // }
-
     &__container{
         display: flex;
         margin: 1rem ;
@@ -45,7 +40,7 @@ a{
     text-decoration: none;
 }
 
-.header__links.active{
+.header__container.active{
     background-color: $red;
     color: #fff;
     padding: .5rem 2rem;

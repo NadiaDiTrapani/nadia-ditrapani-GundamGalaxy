@@ -39,7 +39,7 @@ function Header(){
                 <NavLink to={'/user'} 
                 className={!selected ? "active" : ""} 
                 onClick={() => setSelected(false)}>
-                    <p className='header__links'>User</p>
+                    <p className='header__links'>Profile</p>
                 </NavLink>
             </li>
         </ul>

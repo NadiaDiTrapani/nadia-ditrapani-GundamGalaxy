@@ -1,0 +1,22 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.card-section{
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-cont{
+
+    &__image{
+        width: 100%;
+        padding-bottom: .5rem;
+    }
+
+    &__title{
+        // font-weight: 600;
+        margin-bottom: 1rem;
+    }
+}
+
