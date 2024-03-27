@@ -1,9 +1,32 @@
 import './gundamDetails.scss';
-import pic from '../../assets/test picture.jpg'
 import back from '../../assets/blue-back.svg'
-import { Link } from 'react-router-dom';
+
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 function GundamDetails(){
+    const { id } = useParams();
+    const [details, setDetails] = useState();
+
+    useEffect(()=> {
+        const getDetails = async() =>{
+            try {
+                const response = await axios.get(`http://localhost:8080/gundams/${id}`);
+                setDetails(response.data)
+            }catch (err){
+                console.log(err)
+            }
+        }
+        getDetails()
+    }, [id])
+    
+    if (!details){
+        return <div className='retriving'>Retriving Gundams...</div>
+    }
+
+    // console.log(details.name)
+
     return(
         <>
         <div className='back-sec'>
@@ -13,19 +36,25 @@ function GundamDetails(){
         </div>
 
         <div className='hero'>
-        <h2 className='hero__title'>Name of Gundam</h2>
-        <img src={pic} className='hero__image'/>
+        <h2 className='hero__title'>{details.name}</h2>
+        <img src={details.image} className='hero__image'/>
         </div>
 
         <div className='info'>
-            <p className='info__title'>Series</p>
-            <p>series</p>
+            <div className='info__cont'>
+                <p className='info__title'>Series</p>
+                <p>{details.series}</p>
+            </div>
 
-            <p className='info__title'>Grade</p>
-            <p>grade</p>
+            <div className='info__cont'>
+                <p className='info__title'>Grade</p>
+                <p>{details.grade}</p>
+            </div>
 
-            <p className='info__title'>Brand</p>
-            <p>brand</p>
+            <div className='info__cont'>
+                <p className='info__title'>Brand</p>
+                <p>{details.brand}</p>
+            </div>
         </div>
 
         <div className='instruction'>
@@ -34,7 +63,7 @@ function GundamDetails(){
 
         <div className='details'>
             <h3 className='details__title'>Product Details</h3>
-            <p>Muffin cookie chocolate cake shortbread croissant icing. Sweet roll liquorice jujubes pastry powder croissant. Liquorice dragée icing croissant sweet roll. Cookie caramels oat cake gummi bears candy cupcake.</p>
+            <p>{details.description}</p>
         </div>
 
         <div className='tools'>

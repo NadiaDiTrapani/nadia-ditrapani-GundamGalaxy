@@ -24,15 +24,16 @@
 
 .info{
     margin: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     border-bottom: $border;
     padding-bottom: .75rem;
 
+    &__cont{
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__title{
         font-weight: 700;
-        width: 50%;
         padding-bottom: .5rem;
         text-transform: uppercase;
     }

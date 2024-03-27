@@ -5,7 +5,6 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 function GundamCard(){
-
     const { id } = useParams();
     const [details, setDetails] = useState();
 
@@ -29,7 +28,6 @@ function GundamCard(){
         return gundam.id !== details.id
     })
 
-    // console.log(details[0].name)
     return(
         
         <div className='card-section'>
