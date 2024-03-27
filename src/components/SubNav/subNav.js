@@ -5,7 +5,7 @@ function SubNav(){
     return(
         <>
             <div className='welcome'>
-                <h1>Welcome!</h1>
+                <h1>Welcome Amuro!</h1>
             </div>
 
             <nav className='nav-bar'>

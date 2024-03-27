@@ -14,8 +14,13 @@
     }
 
     &__title{
-        // font-weight: 600;
         margin-bottom: 1rem;
+        
+    }
+
+    &__link{
+        text-decoration: none;
+        color: #000;
     }
 }
 

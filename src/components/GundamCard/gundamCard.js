@@ -1,12 +1,12 @@
 import './gundamCard.scss';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 function GundamCard(){
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [details, setDetails] = useState();
 
     useEffect(()=> {
@@ -29,15 +29,18 @@ function GundamCard(){
         return gundam.id !== details.id
     })
 
+    // console.log(details[0].name)
     return(
         
         <div className='card-section'>
             <>
             {filteredGundam.map((gundam)=>{
-                return <div className='card-cont' key={gundam.id}>
+                return <Link to={`/gundams/${gundam.id}`} className='card-cont__link' key={gundam.id}>
+                <div className='card-cont'>
                 <img src={gundam.image} alt={gundam.name} className='card-cont__image'/>
                 <p className='card-cont__title'>{gundam.name}</p>
                 </div>
+                </Link>
             })}
             
             </>

@@ -8,7 +8,21 @@
 }
 
 h1, h2, h3, h4, p, button, link, input, a, ::placeholder, select, label{
-    font-family: Helvetica;
+    font-family: 'Futura';
 }
 
 
+@font-face {
+    font-family: "Futura";
+    src: url(./assets/font/FuturaStd-Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url(./assets/font/FuturaStd-Book.otf) format('opentype');
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url(./assets/font/FuturaStd-Light.otf) format('opentype');
+}

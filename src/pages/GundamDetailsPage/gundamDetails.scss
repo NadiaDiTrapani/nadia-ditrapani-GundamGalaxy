@@ -1,0 +1,92 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.back-sec{
+    margin: 1rem;
+    border-bottom: $border;
+    padding-bottom: .75rem;
+}
+
+.hero{
+    margin: 1rem;
+
+    &__title{
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    &__image{
+        width: 100%;
+        border-bottom: $border;
+        padding-bottom: 1rem;
+    }
+}
+
+.info{
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: $border;
+    padding-bottom: .75rem;
+
+    &__title{
+        font-weight: 700;
+        width: 50%;
+        padding-bottom: .5rem;
+        text-transform: uppercase;
+    }
+}
+
+.instruction{
+    margin: 1rem;
+    border-bottom: $border;
+    padding-bottom: 1rem;
+
+    &__btn{
+        border: none;
+        padding: .5rem 2rem;
+        color:#fff;
+        background-color: $blue;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+.details{
+    margin: 1rem;
+    border-bottom: $border;
+    padding-bottom: 1rem;
+
+    &__title{
+        text-transform: uppercase;
+        padding-bottom: 1rem;
+    }
+}
+
+.tools{
+    margin: 1rem;
+    // padding-bottom: 1rem;
+    display: flex;
+
+    &__left{
+        border-right: $border;
+        padding-right:.75rem;
+    }
+
+    &__right{
+        padding-left:.75rem;
+    }
+
+    &__title{
+        font-size: .75rem;
+        text-transform: uppercase;
+        padding-bottom: .25rem;
+    }
+
+    &__text{
+        font-size: .75rem;
+        padding-bottom: .25rem;
+        
+    }
+}
