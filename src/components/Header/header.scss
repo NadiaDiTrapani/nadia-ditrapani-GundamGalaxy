@@ -29,21 +29,10 @@
         padding: .5rem 2rem;
         font-weight: 600;
         letter-spacing: 2px;
-
-        &:hover{
-            background-color: $red;
-        }
+        text-decoration: none;
     }
 }
 
-a{
-    text-decoration: none;
-}
-
-.header__container.active{
+.header__links.active{
     background-color: $red;
-    color: #fff;
-    padding: .5rem 2rem;
-    font-weight: 600;
-    letter-spacing: 2px;
 }
