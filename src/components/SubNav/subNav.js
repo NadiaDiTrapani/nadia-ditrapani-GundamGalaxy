@@ -2,12 +2,10 @@ import './subNav.scss';
 import search from '../../assets/search-white.png'
 
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import GundamCard from '../GundamCard/gundamCard';
 
 function SubNav(){
-    const { id } = useParams();
     const [details, setDetails] = useState();
     const [filter, setFilter] = useState('All')
 
@@ -26,8 +24,6 @@ function SubNav(){
     if (!details){
         return <div className='retriving'>Retriving Gundams...</div>
     }
-    // console.log(details)
-
 
     function handleFilterChange(newFilter) {
         setFilter(newFilter);

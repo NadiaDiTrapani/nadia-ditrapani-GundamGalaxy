@@ -1,0 +1,44 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/variables' as *;
+
+.user-sub{
+    margin: 1rem;
+
+    &__title{
+        padding-bottom: .75rem;
+        border-bottom: $border;
+    }
+
+    &__btn-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-bottom: $border;
+        padding: 1rem 0 .5rem 0;
+    }
+
+    &__btn{
+        border: none;
+        background-color: $yellow;
+        color: #fff;
+        padding: .75rem .75rem;
+        margin-bottom:.5rem;
+        width: 48%;
+        letter-spacing: .0938rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+.user-sub__btn.active{
+    border: none;
+    background-color: $blue;
+    color: #fff;
+    padding: .75rem .75rem;
+    margin-bottom:.5rem;
+    width: 48%;
+    letter-spacing: .0938rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}

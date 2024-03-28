@@ -1,6 +1,6 @@
 import './gundamCard.scss';
 
-import { Link, useParams } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
@@ -36,7 +36,7 @@ function GundamCard({item}){
             <Link to={`/gundams/${details.id}`} className='card-cont__link' key={details.id}>
                 <div className='card-cont'>
                     <img src={details.image} alt={details.name} className='card-cont__image' />
-                    <p className='card-cont__title'>{details.name}</p>
+                    <p>{details.name}</p>
                 </div>
             </Link>
         </div>
