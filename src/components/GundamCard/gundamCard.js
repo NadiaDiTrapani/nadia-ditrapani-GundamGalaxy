@@ -4,44 +4,41 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-function GundamCard(){
-    const { id } = useParams();
-    const [details, setDetails] = useState();
+function GundamCard({item}){
+    const [details, setDetails] = useState(null);
 
-    useEffect(()=> {
-        const getDetails = async() =>{
-            try {
-                const response = await axios.get(`http://localhost:8080/gundams/`);
-                setDetails(response.data)
-            }catch (err){
-                console.log(err)
-            }
+    useEffect(() => {
+        if (item) { 
+            const getDetails = async () => {
+                try {
+                    const response = await axios.get(`http://localhost:8080/gundams/${item.id}`);
+                    setDetails(response.data);
+                } catch (err) {
+                    console.log(err);
+                }
+            };
+            getDetails();
         }
-        getDetails()
-    }, [id])
+    }, [item]);
     
-    if (!details){
-        return <div className='retriving'>Retriving Gundams...</div>
+    if (!details && item) { 
+        return <div className='retrieving'>Retrieving Gundam details...</div>; 
     }
-
-    const filteredGundam = details.filter((gundam)=>{
-        return gundam.id !== details.id
-    })
+    
+    if (!item) {
+        return null; 
+    }
 
     return(
         
         <div className='card-section'>
-            <>
-            {filteredGundam.map((gundam)=>{
-                return <Link to={`/gundams/${gundam.id}`} className='card-cont__link' key={gundam.id}>
+
+            <Link to={`/gundams/${details.id}`} className='card-cont__link' key={details.id}>
                 <div className='card-cont'>
-                <img src={gundam.image} alt={gundam.name} className='card-cont__image'/>
-                <p className='card-cont__title'>{gundam.name}</p>
+                    <img src={details.image} alt={details.name} className='card-cont__image' />
+                    <p className='card-cont__title'>{details.name}</p>
                 </div>
-                </Link>
-            })}
-            
-            </>
+            </Link>
         </div>
     )
 }

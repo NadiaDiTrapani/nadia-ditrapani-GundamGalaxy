@@ -1,18 +1,17 @@
-import GundamCard from '../GundamCard/gundamCard';
-import './gundamSection.scss';
+// import GundamCard from '../GundamCard/gundamCard';
+// import './gundamSection.scss';
 
-function GundamSection(){
+// function GundamSection({item}){
 
+//     return(
+//         <>
+//             <div className='container'>
+//                 <h2> Title of section </h2>
+//             </div>
 
-    return(
-        <>
-            <div className='container'>
-                <h2> Title of section </h2>
-            </div>
+//             <GundamCard />
+//         </>
+//     )
+// }
 
-            <GundamCard />
-        </>
-    )
-}
-
-export default GundamSection;
+// export default GundamSection;

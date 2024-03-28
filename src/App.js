@@ -8,7 +8,6 @@ import UserPage from './pages/UserPage/userPage';
 import Footer from './components/Footer/footer';
 import GundamDetails from './pages/GundamDetailsPage/gundamDetails';
 
-
 function App() {
   return (
     <div className="App">

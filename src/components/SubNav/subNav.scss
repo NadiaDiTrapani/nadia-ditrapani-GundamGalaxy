@@ -11,8 +11,7 @@
     margin: 1rem;
     display: flex;
     flex-direction: column;
-    padding-bottom: .5rem;
-    border-bottom: $border;
+    
 
     &__search{
         background-color: $red;
@@ -27,6 +26,8 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        border-bottom: $border;
+        padding-bottom: .5rem;
     }
 
     &__buttons{
@@ -40,4 +41,16 @@
         font-weight: 700;
         text-transform: uppercase;
     }
+}
+
+.nav-bar__buttons.active{
+    border: none;
+    background-color: $yellow;
+    color: #fff;
+    padding: .75rem .75rem;
+    margin-bottom:.5rem;
+    width: 48%;
+    letter-spacing: .0938rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
