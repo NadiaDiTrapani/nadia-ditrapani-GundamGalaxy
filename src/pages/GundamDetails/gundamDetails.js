@@ -1,12 +1,13 @@
 import './gundamDetails.scss';
 import back from '../../assets/blue-back.svg';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function GundamDetails() {
     const { id } = useParams();
     const [details, setDetails] = useState();
+    const [isInWishlist, setIsInWishlist] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,6 +22,45 @@ function GundamDetails() {
         getDetails();
     }, [id]);
 
+
+    useEffect(() => {
+        const checkWishlist = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/wishlist/${id}`);
+                setIsInWishlist(response.data.isInWishlist);
+            } catch (err) {
+                console.error('Error checking wishlist:', err);
+            }
+        };
+        checkWishlist();
+    }, [id]);
+
+    const addToWishlist = async () => {
+        try {
+            const userId = 1
+            if (isInWishlist) {
+                await axios.delete(`http://localhost:8080/wishlist/${id}`, {
+                    data: { gundam_id: id, user_id: userId }
+                });
+                setIsInWishlist(false);
+                console.log('Gundam removed from wishlist successfully');
+            } else {
+                // Assuming `userId` is defined somewhere in your component
+                const userId = 1; // Hardcoded for demonstration, replace with your actual user ID logic
+    
+                await axios.post('http://localhost:8080/wishlist/add', {
+                    gundam_id: id,
+                    user_id: userId
+                });
+                setIsInWishlist(true);
+                console.log('Gundam added to wishlist successfully');
+            }
+        } catch (err) {
+            console.error('Error updating wishlist:', err);
+            alert('Failed to update wishlist');
+        }
+    };
+
     if (!details) {
         return <div className='retrieving'>Retrieving Gundams...</div>;
     }
@@ -34,6 +74,12 @@ function GundamDetails() {
             <div className='hero'>
                 <h2 className='hero__title'>{details.name}</h2>
                 <img src={details.image} className='hero__image' alt={details.name} />
+                <div className='hero__btn-cont'>
+                    <button className='hero__btn' onClick={addToWishlist}>
+                        {isInWishlist ? '- Remove from Wishlist' : '+ Add to Wishlist'}
+                    </button>
+                    <button className='hero__btn'>+ bought</button>
+                </div>
             </div>
 
             <div className='info'>
@@ -41,12 +87,10 @@ function GundamDetails() {
                     <p className='info__title'>Series</p>
                     <p>{details.series}</p>
                 </div>
-
                 <div className='info__cont'>
                     <p className='info__title'>Grade</p>
                     <p>{details.grade}</p>
                 </div>
-
                 <div className='info__cont'>
                     <p className='info__title'>Brand</p>
                     <p>{details.brand}</p>

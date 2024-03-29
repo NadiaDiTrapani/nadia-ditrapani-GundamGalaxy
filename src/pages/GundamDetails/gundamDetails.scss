@@ -9,6 +9,8 @@
 
 .hero{
     margin: 1rem;
+    border-bottom: $border;
+    padding-bottom: 1rem;
 
     &__title{
         margin-bottom: 1rem;
@@ -17,8 +19,22 @@
 
     &__image{
         width: 100%;
-        border-bottom: $border;
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__btn-cont{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn{
+        border: none;
+        padding: .5rem 1.5rem;
+        background-color: transparent;
+        color: $red;
+        border: solid 2px $red;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 }
 
