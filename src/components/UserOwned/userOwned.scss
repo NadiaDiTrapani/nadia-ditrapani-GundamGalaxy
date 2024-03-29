@@ -1,2 +1,12 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
+
+.section{
+    margin-top: 1rem;
+    border-top: $border;
+
+    &__title{
+        padding-top: 1rem;
+        text-transform: uppercase;
+    }
+}
