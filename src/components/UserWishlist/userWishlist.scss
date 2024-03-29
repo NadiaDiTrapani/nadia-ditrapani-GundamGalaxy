@@ -6,6 +6,8 @@
     &__subtitle{
         margin-top: 1rem;
         text-transform: uppercase;
+        border-bottom: $border;
+        padding-bottom: 1rem;
     }
 
     &__image{

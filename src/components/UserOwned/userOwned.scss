@@ -1,6 +1,11 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/variables' as *;
 
+.user-list__subtitle--owned{
+    border-bottom: none;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
 .section{
     margin-top: 1rem;
     border-top: $border;

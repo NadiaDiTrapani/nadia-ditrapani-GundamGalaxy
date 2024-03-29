@@ -30,7 +30,7 @@ function UserOwned(){
 
     return (
         <div className='user-list'>
-            <h2 className='user-list__subtitle'>My Gundams</h2>
+            <h2 className='user-list__subtitle--owned'>My Gundams</h2>
 
             <div className='section'>
                 {otherGundams.map(item => (
