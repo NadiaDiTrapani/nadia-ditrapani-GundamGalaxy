@@ -2,13 +2,13 @@
 # Gundam Galaxy
 
 Keeping a catalogue of Gundam models is essential for any enthusiast. It not only serves as a source of inspiration but also acts as a roadmap for your collection journey. With a comprehensive list, you can easily keep track of the models you own and the ones you've assembled, ensuring you don't miss any in your quest to conquer the Gundam universe. Whether meticulously organizing by series, scale, or grade, a well-maintained catalogue is the ultimate tool for any Gundam builder, ensuring no mobile suit is left behind.
-##
-**Tech Stack**
+
 This web app is currently set to be used on a mobile device. It has been created using React.js and SASS on the front end, Node and Express for the back-end server, and Knex for querying a MySQL database.
+##
 
 ![completed](./src/assets/screen%20shots/Group%2013.png)
 
-#### Features
+## Features
 
 **Catalogue Gundam Models**:
  - Users are able to categorize models by grade.
@@ -74,13 +74,3 @@ Start the app
 - In-progress Page.
 - Sign-up and log-in function for different users.
 - Getting the instructions add to details page.
-
-
-
-
-
-
-
-
-![completed](./proposal_images/mobile%20completed.png)
-
