@@ -36,8 +36,12 @@ function UserOwned(){
                 {otherGundams.map(item => (
                     <Link to={`/gundams/${item.id}`} key={item.id} className='card-cont__link'>
                         <div>
+                            <p className='user-list__name'>{item.name}</p>
                             <img src={item.image} className='user-list__image' alt={item.name} />
-                            <p>{item.name}</p>
+                            
+                            <div className='user-list__btn-cont'>
+                                <button className='user-list__btn'>Start Building</button>
+                            </div>
                         </div>
                     </Link>
                 ))}
@@ -48,8 +52,12 @@ function UserOwned(){
                 {inProgressGundams.map(item => (
                     <Link to={`/gundams/${item.id}`} key={item.id} className='card-cont__link'>
                         <div>
+                            <p className='user-list__name'>{item.name}</p>
                             <img src={item.image} className='user-list__image' alt={item.name} />
-                            <p>{item.name}</p>
+                            
+                            <div className='user-list__btn-cont'>
+                                <button className='user-list__btn'>Continue Building</button>
+                            </div>
                         </div>
                     </Link>
                 ))}
@@ -60,8 +68,10 @@ function UserOwned(){
                 {completedGundams.map(item => (
                     <Link to={`/gundams/${item.id}`} key={item.id} className='card-cont__link'>
                         <div>
+                            <p className='user-list__name'>{item.name}</p>
                             <img src={item.image} className='user-list__image' alt={item.name} />
-                            <p>{item.name}</p>
+                            
+                            <div className='user-list__btn-cont'></div>
                         </div>
                     </Link>
                 ))}

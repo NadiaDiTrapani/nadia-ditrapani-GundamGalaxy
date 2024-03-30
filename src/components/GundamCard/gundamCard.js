@@ -35,8 +35,13 @@ function GundamCard({item}){
 
             <Link to={`/gundams/${details.id}`} className='card-cont__link' key={details.id}>
                 <div className='card-cont'>
+                    <p className='user-list__name'>{details.name}</p> 
                     <img src={details.image} alt={details.name} className='card-cont__image' />
-                    <p>{details.name}</p>
+
+                    <div className='user-list__btn-cont'>
+                    <button className='user-list__btn'>+ add to wishlist</button>
+                    <button className='user-list__btn'>+ bought</button>
+                    </div>
                 </div>
             </Link>
         </div>

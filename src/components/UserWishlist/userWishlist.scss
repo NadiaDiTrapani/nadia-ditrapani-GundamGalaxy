@@ -10,8 +10,33 @@
         padding-bottom: 1rem;
     }
 
+    &__name{
+        padding: 1rem 0 .5rem 0;
+    }
+
     &__image{
         width: 100%;
-        padding-top: 1rem;
+    }
+
+    &__btn-cont{
+        display: flex;
+        flex-direction: column;
+        border-bottom: $border;
+        padding: .5rem 0;
+    }
+
+    &__btn{
+        border: solid 1px $red;
+        padding: .5rem 1.5rem;
+        background-color:transparent;
+        color: $red;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: .25rem 0;
+    }
+
+    &__link{
+        text-decoration: none;
+        color:#000;
     }
 }

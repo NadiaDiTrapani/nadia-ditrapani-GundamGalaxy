@@ -10,7 +10,6 @@
 .hero{
     margin: 1rem;
     border-bottom: $border;
-    padding-bottom: 1rem;
 
     &__title{
         margin-bottom: 1rem;
@@ -19,23 +18,28 @@
 
     &__image{
         width: 100%;
-        margin-bottom: 1rem;
     }
 
     &__btn-cont{
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        padding: .5rem 0;
     }
 
     &__btn{
-        border: none;
+        border: solid 1px $red;
         padding: .5rem 1.5rem;
-        background-color: transparent;
+        background-color:transparent;
         color: $red;
-        border: solid 2px $red;
         letter-spacing: 1px;
         text-transform: uppercase;
+        margin: .25rem 0;
     }
+}
+
+.wishlist-added{
+    background-color: $red;
+    color: #fff;
 }
 
 .info{

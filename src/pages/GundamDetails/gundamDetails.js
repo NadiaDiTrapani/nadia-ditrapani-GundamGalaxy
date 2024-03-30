@@ -37,17 +37,17 @@ function GundamDetails() {
 
     const addToWishlist = async () => {
         try {
-            const userId = 1
+            const userId = 1; // Hardcoded for demonstration
+    
             if (isInWishlist) {
+                // If the item is already in the wishlist, remove it
                 await axios.delete(`http://localhost:8080/wishlist/${id}`, {
                     data: { gundam_id: id, user_id: userId }
                 });
                 setIsInWishlist(false);
                 console.log('Gundam removed from wishlist successfully');
             } else {
-                // Assuming `userId` is defined somewhere in your component
-                const userId = 1; // Hardcoded for demonstration, replace with your actual user ID logic
-    
+                // If the item is not in the wishlist, add it
                 await axios.post('http://localhost:8080/wishlist/add', {
                     gundam_id: id,
                     user_id: userId
@@ -75,7 +75,7 @@ function GundamDetails() {
                 <h2 className='hero__title'>{details.name}</h2>
                 <img src={details.image} className='hero__image' alt={details.name} />
                 <div className='hero__btn-cont'>
-                    <button className='hero__btn' onClick={addToWishlist}>
+                    <button className={`hero__btn ${isInWishlist ? 'wishlist-added' : ''}`} onClick={addToWishlist}>
                         {isInWishlist ? '- Remove from Wishlist' : '+ Add to Wishlist'}
                     </button>
                     <button className='hero__btn'>+ bought</button>

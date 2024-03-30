@@ -2,13 +2,13 @@
 @use '../../styles/variables' as *;
 
 .welcome{
-    margin: 1rem;
+    margin: 1rem 1rem .5rem 1rem;
     padding-bottom: 1rem;
     border-bottom: $border;
 }
 
 .nav-bar{
-    margin: 1rem;
+    margin: .5rem 1rem 1rem 1rem;
     display: flex;
     flex-direction: column;
     
@@ -27,7 +27,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
         border-bottom: $border;
-        padding-bottom: .5rem;
+
     }
 
     &__buttons{
