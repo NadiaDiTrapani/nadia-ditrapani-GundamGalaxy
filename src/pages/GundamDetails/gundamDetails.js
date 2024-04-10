@@ -22,12 +22,13 @@ function GundamDetails() {
         getDetails();
     }, [id]);
 
-
     useEffect(() => {
-        const checkWishlist = async () => {
+        const checkWishlist = async() => {
             try {
-                const response = await axios.get(`http://localhost:8080/wishlist/${id}`);
-                setIsInWishlist(response.data.isInWishlist);
+                const response = await axios.get(`http://127.0.0.1:8080/wishlist/1`);
+                let exists = response.data.some(e => e.id.toString() === id);
+                setIsInWishlist(exists);
+
             } catch (err) {
                 console.error('Error checking wishlist:', err);
             }

@@ -20,7 +20,7 @@ function SubNav(){
         }
         getDetails()
     }, [])
-    
+
     if (!details){
         return <div className='retriving'>Retriving Gundams...</div>
     }
