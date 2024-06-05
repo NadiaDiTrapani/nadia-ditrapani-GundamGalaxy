@@ -8,6 +8,7 @@ function GundamDetails() {
     const { id } = useParams();
     const [details, setDetails] = useState();
     const [isInWishlist, setIsInWishlist] = useState(false);
+    const [isOwned, setIsOwned] = useState(false);  // New state variable for owned status
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,12 +24,11 @@ function GundamDetails() {
     }, [id]);
 
     useEffect(() => {
-        const checkWishlist = async() => {
+        const checkWishlist = async () => {
             try {
                 const response = await axios.get(`http://127.0.0.1:8080/wishlist/1`);
                 let exists = response.data.some(e => e.id.toString() === id);
                 setIsInWishlist(exists);
-
             } catch (err) {
                 console.error('Error checking wishlist:', err);
             }
@@ -36,19 +36,30 @@ function GundamDetails() {
         checkWishlist();
     }, [id]);
 
+    useEffect(() => {
+        const checkOwned = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:8080/owned/1`);
+                let exists = response.data.some(e => e.id.toString() === id);
+                setIsOwned(exists);
+            } catch (err) {
+                console.error('Error checking owned list:', err);
+            }
+        };
+        checkOwned();
+    }, [id]);
+
     const addToWishlist = async () => {
         try {
             const userId = 1; // Hardcoded for demonstration
     
             if (isInWishlist) {
-                // If the item is already in the wishlist, remove it
                 await axios.delete(`http://localhost:8080/wishlist/${id}`, {
                     data: { gundam_id: id, user_id: userId }
                 });
                 setIsInWishlist(false);
                 console.log('Gundam removed from wishlist successfully');
             } else {
-                // If the item is not in the wishlist, add it
                 await axios.post('http://localhost:8080/wishlist/add', {
                     gundam_id: id,
                     user_id: userId
@@ -59,6 +70,30 @@ function GundamDetails() {
         } catch (err) {
             console.error('Error updating wishlist:', err);
             alert('Failed to update wishlist');
+        }
+    };
+
+    const addToOwned = async () => {
+        try {
+            const userId = 1; // Hardcoded for demonstration
+    
+            if (isOwned) {
+                await axios.delete(`http://localhost:8080/owned/${id}`, {
+                    data: { gundam_id: id, user_id: userId }
+                });
+                setIsOwned(false);
+                console.log('Gundam removed from owned list successfully');
+            } else {
+                await axios.post('http://localhost:8080/owned/add', {
+                    gundam_id: id,
+                    user_id: userId
+                });
+                setIsOwned(true);
+                console.log('Gundam added to owned list successfully');
+            }
+        } catch (err) {
+            console.error('Error updating owned list:', err);
+            alert('Failed to update owned list');
         }
     };
 
@@ -79,7 +114,9 @@ function GundamDetails() {
                     <button className={`hero__btn ${isInWishlist ? 'wishlist-added' : ''}`} onClick={addToWishlist}>
                         {isInWishlist ? '- Remove from Wishlist' : '+ Add to Wishlist'}
                     </button>
-                    <button className='hero__btn'>+ bought</button>
+                    <button className={`hero__btn ${isOwned ? 'bought-added' : ''}`} onClick={addToOwned}>
+                        {isOwned ? 'Own' : '+ Mark as Bought'}
+                    </button>
                 </div>
             </div>
 
