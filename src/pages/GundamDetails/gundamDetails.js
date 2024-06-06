@@ -52,10 +52,10 @@ function GundamDetails() {
     const addToWishlist = async () => {
         try {
             const userId = 1; // Hardcoded for demonstration
-    
+        
             if (isInWishlist) {
-                await axios.delete(`http://localhost:8080/wishlist/${id}`, {
-                    data: { gundam_id: id, user_id: userId }
+                await axios.delete(`http://localhost:8080/wishlist/${userId}`, {
+                    data: { gundam_id: id }
                 });
                 setIsInWishlist(false);
                 console.log('Gundam removed from wishlist successfully');
@@ -71,7 +71,7 @@ function GundamDetails() {
             console.error('Error updating wishlist:', err);
             alert('Failed to update wishlist');
         }
-    };
+    }
 
     const addToOwned = async () => {
         try {

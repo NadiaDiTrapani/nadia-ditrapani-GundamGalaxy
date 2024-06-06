@@ -53,10 +53,10 @@ function GundamCard({ item }) {
     const addToWishlist = async () => {
         try {
             const userId = 1; // Hardcoded for demonstration
-
+        
             if (isInWishlist) {
-                await axios.delete(`http://localhost:8080/wishlist/${item.id}`, {
-                    data: { user_id: userId }
+                await axios.delete(`http://localhost:8080/wishlist/${userId}`, {
+                    data: { gundam_id: item.id }
                 });
                 setIsInWishlist(false);
                 console.log('Gundam removed from wishlist successfully');
@@ -72,7 +72,7 @@ function GundamCard({ item }) {
             console.error('Error updating wishlist:', err);
             alert('Failed to update wishlist');
         }
-    };
+    }
 
     const markAsBought = async () => {
         try {
