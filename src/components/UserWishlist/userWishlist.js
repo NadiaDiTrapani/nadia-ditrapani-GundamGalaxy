@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 function UserWishlist() {
     const { id } = useParams();
     const [details, setDetails] = useState([]);
+    const [ownedItems, setOwnedItems] = useState({}); // Object to manage "bought" status
 
     useEffect(() => {
         const getDetails = async () => {
@@ -34,22 +35,45 @@ function UserWishlist() {
         }
     };
 
-    const addToOwned = async (itemId) => {
+    const addToOwn = async (itemId) => {
         try {
-            const userId = 1; // Assuming user_id is 1 for demonstration
-            // Send a POST request to add the gundam to the owned list
-            await axios.post(`http://localhost:8080/owned/add`, {
-                gundam_id: itemId,
-                user_id: userId
-            });
-            console.log('Item added to owned list successfully');
-            // After adding, fetch the updated wishlist
-            const response = await axios.get(`http://localhost:8080/wishlist/${userId}`);
-            setDetails(response.data);
+            const userId = 1; // Hardcoded for demonstration
+
+            if (ownedItems[itemId]) {
+                await axios.delete(`http://localhost:8080/owned/${id}`, {
+                    data: { gundam_id: itemId, user_id: userId }
+                });
+                setOwnedItems(prev => ({ ...prev, [itemId]: false }));
+                console.log('Gundam removed from owned list successfully');
+            } else {
+                await axios.post('http://localhost:8080/owned/add', {
+                    gundam_id: itemId,
+                    user_id: userId
+                });
+                setOwnedItems(prev => ({ ...prev, [itemId]: true }));
+                console.log('Gundam added to owned list successfully');
+            }
         } catch (err) {
-            console.error('Error adding item to owned list:', err);
+            console.error('Error updating owned list:', err);
+            alert('Failed to update owned list');
         }
     };
+
+    useEffect(() => {
+        const checkOwned = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:8080/owned/1`);
+                const ownedStatus = response.data.reduce((acc, item) => {
+                    acc[item.id] = true;
+                    return acc;
+                }, {});
+                setOwnedItems(ownedStatus);
+            } catch (err) {
+                console.error('Error checking owned list:', err);
+            }
+        };
+        checkOwned();
+    }, [id]);
 
     if (!details) {
         return <div className='retrieving'>Retrieving Gundams...</div>;
@@ -63,14 +87,17 @@ function UserWishlist() {
                 <div key={item.id} className='card-cont__link'>
                     <Link to={`/gundams/${item.id}`} className='user-list__link'>
                         <p className='user-list__name'>{item.name}</p>
-                        <img src={item.image} className='user-list__image' />
+                        <img src={item.image} className='user-list__image' alt='gundam'/>
                     </Link>
 
                     <div className='user-list__btn-cont'>
                         <button className='user-list__btn' onClick={() => removeFromWishlist(item.id)}>
                             - Remove from Wishlist
                         </button>
-                        <button className='user-list__btn' onClick={() => addToOwned(item.id)}>
+                        <button
+                            className={`user-list__btn ${ownedItems[item.id] ? 'bought-added' : ''}`}
+                            onClick={() => addToOwn(item.id)}
+                        >
                             + bought
                         </button>
                     </div>
